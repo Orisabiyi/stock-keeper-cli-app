@@ -1,0 +1,14 @@
+/Users/apple/repo/stock/bin/Debug/net10.0/stock
+/Users/apple/repo/stock/bin/Debug/net10.0/stock.deps.json
+/Users/apple/repo/stock/bin/Debug/net10.0/stock.runtimeconfig.json
+/Users/apple/repo/stock/bin/Debug/net10.0/stock.dll
+/Users/apple/repo/stock/bin/Debug/net10.0/stock.pdb
+/Users/apple/repo/stock/obj/Debug/net10.0/stock.GeneratedMSBuildEditorConfig.editorconfig
+/Users/apple/repo/stock/obj/Debug/net10.0/stock.AssemblyInfoInputs.cache
+/Users/apple/repo/stock/obj/Debug/net10.0/stock.AssemblyInfo.cs
+/Users/apple/repo/stock/obj/Debug/net10.0/stock.csproj.CoreCompileInputs.cache
+/Users/apple/repo/stock/obj/Debug/net10.0/stock.dll
+/Users/apple/repo/stock/obj/Debug/net10.0/refint/stock.dll
+/Users/apple/repo/stock/obj/Debug/net10.0/stock.pdb
+/Users/apple/repo/stock/obj/Debug/net10.0/stock.genruntimeconfig.cache
+/Users/apple/repo/stock/obj/Debug/net10.0/ref/stock.dll
