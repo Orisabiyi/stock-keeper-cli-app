@@ -72,6 +72,28 @@ internal static class Program
           }
           break;
 
+        case 3:
+          while (true)
+          {
+            Console.WriteLine("Update product quantity by providing sku and quantity");
+
+            string sku = Console.ReadLine()!;
+            int quantity = int.TryParse(Console.ReadLine(), out quantity) ? quantity : 0;
+
+            try
+            {
+              inventory.UpdateProductQuantity(sku, quantity);
+              break;
+            }
+            catch (ArgumentException error)
+            {
+              Console.Error.WriteLine(error.Message);
+              continue;
+            }
+          }
+
+          break;
+
         case 4:
           Console.WriteLine("Exiting the program. Goodbye!");
           break;
