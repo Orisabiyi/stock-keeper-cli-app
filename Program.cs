@@ -7,12 +7,18 @@ internal static class Program
   {
     Console.WriteLine("Welcome to the Inventory Management System! \n 1. Add Product \n 2. Search Product \n 3. Update Product Quantity \n 4. Exit \n\n Please enter your choice (1-4):");
 
-    int? input = int.Parse(Console.ReadLine()!);
+    int input = 0;
 
     Inventory inventory = new Inventory();
 
     while (input != 4)
     {
+      if (!int.TryParse(Console.ReadLine(), out input))
+      {
+        Console.WriteLine("Invalid input. Please enter a number between 1 and 4.");
+        continue;
+      }
+
       switch (input)
       {
         case 1:
@@ -35,19 +41,20 @@ internal static class Program
             inventory.AddProduct(product);
             Console.WriteLine($"Product {name} added successfully.");
           }
-          catch (ArgumentException ex)
+          catch (ArgumentException error)
           {
-            Console.WriteLine(ex.Message);
+            Console.Error.WriteLine(error.Message);
           }
           break;
 
+        case 4:
+          Console.WriteLine("Exiting the program. Goodbye!");
+          break;
 
         default:
           Console.WriteLine("Invalid choice. Please enter a number between 1 and 4.");
           break;
       }
-
-      break;
     }
   }
 }
