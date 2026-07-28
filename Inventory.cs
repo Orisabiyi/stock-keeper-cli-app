@@ -4,7 +4,7 @@ namespace stock;
 
 public class Inventory
 {
-  Dictionary<int, Product> products = new Dictionary<int, Product>();
+  Dictionary<string, Product> products = new Dictionary<string, Product>();
 
   public void AddProduct(Product product)
   {
@@ -16,7 +16,7 @@ public class Inventory
     products.Add(product.Sku, product);
   }
 
-  public Product SearchProduct(int sku)
+  public Product SearchProduct(string sku)
   {
     if (products.TryGetValue(sku, out Product? product))
     {
@@ -28,7 +28,7 @@ public class Inventory
     }
   }
 
-  public void UpdateProductQuantity(int sku, int newQuantity)
+  public void UpdateProductQuantity(string sku, int newQuantity)
   {
     if (products.TryGetValue(sku, out Product? product))
     {

@@ -2,7 +2,7 @@
 
 public class Product
 {
-  public int Sku
+  public string Sku
   {
     get; set;
   }
@@ -22,7 +22,7 @@ public class Product
     get; set;
   }
 
-  public Product(int sku, string productName, int productQuantity, decimal productPrice)
+  public Product(string sku, string productName, int productQuantity, decimal productPrice)
   {
     Sku = sku;
     Name = productName;

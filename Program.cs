@@ -22,28 +22,33 @@ internal static class Program
       switch (input)
       {
         case 1:
-          Console.WriteLine("Enter product SKU:");
-          int sku = int.Parse(Console.ReadLine()!);
-
-          Console.WriteLine("Enter product name:");
-          string name = Console.ReadLine()!;
-
-          Console.WriteLine("Enter product quantity:");
-          int quantity = int.Parse(Console.ReadLine()!);
-
-          Console.WriteLine("Enter product price:");
-          decimal price = decimal.Parse(Console.ReadLine()!);
-
-          Product product = new Product(sku, name, quantity, price);
-
-          try
+          while (true)
           {
-            inventory.AddProduct(product);
-            Console.WriteLine($"Product {name} added successfully.");
-          }
-          catch (ArgumentException error)
-          {
-            Console.Error.WriteLine(error.Message);
+            Console.WriteLine("Enter product SKU:");
+            string sku = Console.ReadLine()!;
+
+            Console.WriteLine("Enter product name:");
+            string name = Console.ReadLine()!;
+
+            Console.WriteLine("Enter product quantity:");
+            int quantity = int.TryParse(Console.ReadLine()!, out quantity) ? quantity : 0;
+
+            Console.WriteLine("Enter product price:");
+            decimal price = decimal.TryParse(Console.ReadLine()!, out price) ? price : 0m;
+
+            Product product = new Product(sku, name, quantity, price);
+
+            try
+            {
+              inventory.AddProduct(product);
+              Console.WriteLine($"Product {name} added successfully.");
+              break;
+            }
+            catch (ArgumentException error)
+            {
+              Console.Error.WriteLine(error.Message);
+              continue;
+            }
           }
           break;
 
