@@ -52,6 +52,13 @@ internal static class Program
           }
           break;
 
+        case 2:
+          while (true)
+          {
+            Console.WriteLine("Enter product SKU to search:");
+            string sku = Console.ReadLine()!;
+          }
+
         case 4:
           Console.WriteLine("Exiting the program. Goodbye!");
           break;
