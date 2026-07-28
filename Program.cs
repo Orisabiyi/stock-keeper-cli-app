@@ -57,7 +57,20 @@ internal static class Program
           {
             Console.WriteLine("Enter product SKU to search:");
             string sku = Console.ReadLine()!;
+
+            try
+            {
+              Product product = inventory.SearchProduct(sku);
+              Console.WriteLine(product);
+              break;
+            }
+            catch (ArgumentException error)
+            {
+              Console.Error.WriteLine(error.Message);
+              continue;
+            }
           }
+          break;
 
         case 4:
           Console.WriteLine("Exiting the program. Goodbye!");
