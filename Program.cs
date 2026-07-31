@@ -9,9 +9,9 @@ internal static class Program
 
     Inventory inventory = new Inventory();
 
-    while (input != 4)
+    while (input != 5)
     {
-      Console.WriteLine("Welcome to the Inventory Management System! \n 1. Add Product \n 2. Search Product \n 3. Update Product Quantity \n 4. Exit \n\n Please enter your choice (1-4):");
+      Console.WriteLine("Welcome to the Inventory Management System! \n 1. Add Product \n 2. Search Product \n 3. Update Product Quantity \n 4. Sell Product \n 5. Exit \n\n Please enter your choice (1-5):");
 
       if (!int.TryParse(Console.ReadLine(), out input))
       {
@@ -50,7 +50,7 @@ internal static class Program
             string sku = Console.ReadLine()!;
 
             Product product = inventory.SearchProduct(sku);
-            Console.WriteLine(product);
+            Console.WriteLine($"Product {product.Name} found. {product.QuantityInStock} items in store");
           });
           break;
 
@@ -69,6 +69,19 @@ internal static class Program
           break;
 
         case 4:
+          Utility.RetryUntilSuccessOrExit(() =>
+          {
+            Console.Write("Enter product sku: ");
+            string sku = Console.ReadLine()!;
+
+            Console.Write("Enter quantity to be sold: ");
+            int quantityToBeSold = int.TryParse(Console.ReadLine()!, out quantityToBeSold) ? quantityToBeSold : 0;
+
+            inventory.SellProduct(sku, quantityToBeSold);
+          });
+          break;
+
+        case 5:
           Console.WriteLine("Exiting the program. Goodbye!");
           break;
 
